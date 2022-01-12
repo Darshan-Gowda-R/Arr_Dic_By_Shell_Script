@@ -5,5 +5,6 @@ echo $a $b $c
 declare -A  comp
 
 comp['a+b*c']=$((a+b*c))
-
+comp['a*b+c']=$((a*b+c))
 echo ${comp['a+b*c']}
+echo ${comp['a*b+cx']}
