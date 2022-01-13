@@ -35,4 +35,20 @@ done
 
 echo "Array in sorted order  : "
 echo ${arr[@]}
-	if
+
+
+for ((i=1;i<num;i++))
+do
+	for((j=0;j<num-i;j++))
+	do
+		if [ ${arr[j]} -lt ${arr[$((j+1))]} ]
+			then
+				temp=${arr[$((j+1))]}
+				arr[$((j+1))]=${arr[j]}
+				arr[j]=$temp
+		fi
+	done
+done
+
+echo "array in sorted in decending order : "
+echo ${arr[@]}
