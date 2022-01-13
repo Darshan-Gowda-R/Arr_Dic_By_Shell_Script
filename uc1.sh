@@ -14,8 +14,25 @@ do
 	arr+=( ${comp[$key]} )
 done
 
-echo "${arr[@]}"
+echo ${arr[@]}
 
 #echo ${comp['a+b*c']}
 #echo ${comp['a*b+cx']}
 #echo ${comp['c+a/b']}
+num=${#arr[@]}
+for (( i=1; i< "${#arr[@]}"; i++ ))
+do
+	for ((j=0 ; j<num-i;j++))
+	do
+		if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
+		then
+			temp=${arr[j]}
+			arr[$j]=${arr[$((j+1))]}
+			arr[$((j+1))]=$temp
+		fi
+	done
+done
+
+echo "Array in sorted order  : "
+echo ${arr[@]}
+	if
